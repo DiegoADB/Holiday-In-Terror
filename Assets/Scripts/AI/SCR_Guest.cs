@@ -15,8 +15,9 @@ public class SCR_Guest : MonoBehaviour
     [SerializeField]
     protected float detectNoiseRange;
     [SerializeField]
-    protected float detectionTimeout;
+    protected float detectionTimeout = 1.0f;
     protected float detectionTimer = 0.0f;
+    protected Transform playerTransform;
 
     [Header("Ragdoll")]
     [SerializeField]
@@ -30,16 +31,20 @@ public class SCR_Guest : MonoBehaviour
     [Header("Animation")]
     protected Animator myAnim;
     protected float movespeed;
-    [SerializeField]
-    protected float idleSpeed;
-    [SerializeField]
-    protected float detectedSpeed;
 
     [Header("Patrol")]
     [SerializeField]
     protected List<Transform> waypoints = new List<Transform>();
     protected int currentWaypointIndex = 0;
     protected NavMeshAgent myNav;
+    [SerializeField]
+    protected float idleSpeed;
+    [SerializeField]
+    protected float detectedSpeed;
+
+    [Header("Particles")]
+    [SerializeField]
+    protected GameObject bloodParticles;
 
     public enum GuestState
     {
@@ -54,6 +59,7 @@ public class SCR_Guest : MonoBehaviour
     {
         myNav = GetComponent<NavMeshAgent>();
         myAnim = GetComponent<Animator>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     protected void Update()
@@ -67,6 +73,15 @@ public class SCR_Guest : MonoBehaviour
         {
             //TODO: change to actual weapon class
             damagingWeapon = other.gameObject;
+        }
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Weapon"))
+        {
+            GameObject blood = Instantiate(bloodParticles);
+            blood.transform.position = other.ClosestPointOnBounds(transform.position);
         }
     }
 
@@ -109,8 +124,17 @@ public class SCR_Guest : MonoBehaviour
     {
         if (waypoints.Count > 0)
         {
+            if (Vector3.Dot(transform.forward, (waypoints[currentWaypointIndex].position - transform.position).normalized) <= 0.9f)
+            {
+                movespeed = 0.1f;
+            }
+            else
+            {
+                movespeed = idleSpeed;
+            }
+
             myNav.SetDestination(waypoints[currentWaypointIndex].position);
-            if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) <= 1.0f)
+            if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) <= 2.0f)
             {
                 currentWaypointIndex++;
                 if (currentWaypointIndex >= waypoints.Count)
@@ -123,7 +147,20 @@ public class SCR_Guest : MonoBehaviour
 
     protected virtual void DetectPlayer()
     {
+        Vector3 startPosition = transform.position + (transform.up * 2);
+        Vector3 endPosition = playerTransform.position;
         
+        RaycastHit hit;
+        if (Physics.Linecast(startPosition, endPosition, out hit))
+        {
+            if (hit.transform.CompareTag("Player"))
+            {
+                if (Vector3.Dot(transform.position.normalized, playerTransform.position.normalized) > 0.5f)
+                {
+                    SetState(GuestState.DETECTED_PLAYER);
+                }
+            }
+        }
     }
 
     protected virtual void StateMachine()
@@ -229,6 +266,7 @@ public class SCR_Guest : MonoBehaviour
                 break;
         }
         AnimationUpdate();
+        myNav.speed = movespeed;
     }
 
 
