@@ -9,8 +9,9 @@ public class SCR_Guest : MonoBehaviour
 {
     protected bool bIsDead = false;
     protected bool bIsTakingDamage = false;
+    [SerializeField]
     protected float enemyHP = 0.0f;
-    protected SCR_InteractableObject damagingWeapon;
+    protected Interactable damagingWeapon;
 
     [Header("Detection")]
     [SerializeField]
@@ -72,7 +73,8 @@ public class SCR_Guest : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            damagingWeapon = other.gameObject.GetComponent<SCR_InteractableObject>();
+            damagingWeapon = other.gameObject.GetComponent<Interactable>();
+            Debug.Log(damagingWeapon.name);
         }
     }
 
@@ -239,15 +241,18 @@ public class SCR_Guest : MonoBehaviour
                         SetTakingDamage(true);
                         bOnEnterState = false;
                     }
-                  
-                    //TakeDamage(damagingWeapon.damage);
-                    if(bIsDead)
+
+                    if (bIsDead)
                     {
                         SetState(GuestState.DEAD);
                     }
-                    else if (!damagingWeapon /*damagingWeapon.damage == 0*/)
+                    else if (!damagingWeapon || damagingWeapon.damage == 0)
                     {
                         SetState(GuestState.DETECTED_PLAYER);
+                    }
+                    else if (damagingWeapon)
+                    {
+                        TakeDamage(damagingWeapon.damage);
                     }
 
                     if (currentState != GuestState.TAKING_DAMAGE)
@@ -262,6 +267,7 @@ public class SCR_Guest : MonoBehaviour
                     if (bOnEnterState)
                     {
                         GameObject myRagdoll = Instantiate(ragdoll);
+                        myRagdoll.transform.position = transform.position;
                         ragdoll.GetComponent<Rigidbody>().AddForce(Vector3.up * ragForce);
                         Destroy(gameObject);
                         bOnEnterState = false;

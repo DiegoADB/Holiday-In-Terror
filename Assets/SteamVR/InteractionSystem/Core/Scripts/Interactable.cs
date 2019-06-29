@@ -9,12 +9,15 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 namespace Valve.VR.InteractionSystem
 {
     //-------------------------------------------------------------------------
     public class Interactable : MonoBehaviour
     {
+        public float damage;
+
         [Tooltip("Activates an action set on attach and deactivates on detach")]
         public SteamVR_Action_Boolean activateActionSetOnAttach;
 
@@ -82,6 +85,7 @@ namespace Valve.VR.InteractionSystem
         public bool wasHovering { get; protected set; }
 
         public Hand hand;
+
         private void Awake()
         {
             skeletonPoser = GetComponent<SteamVR_Skeleton_Poser>();
@@ -259,7 +263,6 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void Update()
         {
-            activateActionSetOnAttach = SteamVR_Input.GetBooleanAction("grabRight", false);
 
             if (highlightOnHover)
             {
@@ -276,8 +279,8 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void OnAttachedToHand(Hand hand)
         {
-            //if (activateActionSetOnAttach != null)
-            //    activateActionSetOnAttach.actionSet(hand.handType);
+            if (activateActionSetOnAttach != null)
+                activateActionSetOnAttach.actionSet.Activate(hand.handType);
 
             if (onAttachedToHand != null)
             {
@@ -300,7 +303,7 @@ namespace Valve.VR.InteractionSystem
                     (hand.otherHand.currentAttachedObjectInfo.Value.interactable != null &&
                      hand.otherHand.currentAttachedObjectInfo.Value.interactable.activateActionSetOnAttach != this.activateActionSetOnAttach))
                 {
-                    //activateActionSetOnAttach.Deactivate(hand.handType);
+                    activateActionSetOnAttach.actionSet.Deactivate(hand.handType);
                 }
             }
 
