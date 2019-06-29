@@ -117,7 +117,7 @@ public class SCR_Guest : MonoBehaviour
     {
         myAnim.SetBool("Taking_Damage", bIsTakingDamage);
         myAnim.SetBool("Dead", bIsDead);
-        myAnim.SetFloat("Movespeed", movespeed);
+        myAnim.SetFloat("Movespeed", movespeed, 0.2f, Time.deltaTime);
     }
 
     protected virtual void NavigateWaypoints()
@@ -147,7 +147,11 @@ public class SCR_Guest : MonoBehaviour
 
     protected virtual void DetectPlayer()
     {
-        Vector3 startPosition = transform.position + (transform.up * 2);
+        if (detectNoiseRange <= 0)
+        {
+            return;
+        }
+        Vector3 startPosition = transform.position + (transform.up);
         Vector3 endPosition = playerTransform.position;
         
         RaycastHit hit;
