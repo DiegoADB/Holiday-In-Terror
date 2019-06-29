@@ -8,15 +8,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using Valve.VR;
 
 namespace Valve.VR.InteractionSystem
 {
     //-------------------------------------------------------------------------
-    public class Interactable : MonoBehaviour
+    public class SCR_InteractableObject : MonoBehaviour
     {
         [Tooltip("Activates an action set on attach and deactivates on detach")]
-        public SteamVR_Action_Boolean activateActionSetOnAttach;
+        public SteamVR_ActionSet activateActionSetOnAttach;
 
         [Tooltip("Hide the whole hand on attachment and show on detach")]
         public bool hideHandOnAttach = true;
@@ -56,7 +55,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Skeleton_Poser skeletonPoser;
 
         [Tooltip("Should the rendered hand lock on to and follow the object")]
-        public bool handFollowTransform= true;
+        public bool handFollowTransform = true;
 
 
         [Tooltip("Set whether or not you want this interactible to highlight when hovering over it")]
@@ -81,9 +80,10 @@ namespace Valve.VR.InteractionSystem
         public bool isHovering { get; protected set; }
         public bool wasHovering { get; protected set; }
 
-        public Hand hand;
+
         private void Awake()
         {
+           
             skeletonPoser = GetComponent<SteamVR_Skeleton_Poser>();
         }
 
@@ -259,8 +259,6 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void Update()
         {
-            activateActionSetOnAttach = SteamVR_Input.GetBooleanAction("grabRight", false);
-
             if (highlightOnHover)
             {
                 UpdateHighlightRenderers();
@@ -269,15 +267,15 @@ namespace Valve.VR.InteractionSystem
                     Destroy(highlightHolder);
             }
         }
-        
+
 
         protected float blendToPoseTime = 0.1f;
         protected float releasePoseBlendTime = 0.2f;
 
         protected virtual void OnAttachedToHand(Hand hand)
         {
-            //if (activateActionSetOnAttach != null)
-            //    activateActionSetOnAttach.actionSet(hand.handType);
+            if (activateActionSetOnAttach != null)
+                activateActionSetOnAttach.Activate(hand.handType);
 
             if (onAttachedToHand != null)
             {
@@ -296,12 +294,12 @@ namespace Valve.VR.InteractionSystem
         {
             if (activateActionSetOnAttach != null)
             {
-                if (hand.otherHand == null || hand.otherHand.currentAttachedObjectInfo.HasValue == false ||
-                    (hand.otherHand.currentAttachedObjectInfo.Value.interactable != null &&
-                     hand.otherHand.currentAttachedObjectInfo.Value.interactable.activateActionSetOnAttach != this.activateActionSetOnAttach))
-                {
-                    //activateActionSetOnAttach.Deactivate(hand.handType);
-                }
+                //if (hand.otherHand == null || hand.otherHand.currentAttachedObjectInfo.HasValue == false ||
+                //    (hand.otherHand.currentAttachedObjectInfo.Value.interactable != null &&
+                //     hand.otherHand.currentAttachedObjectInfo.Value.interactable.activateActionSetOnAttach != this.activateActionSetOnAttach))
+                //{
+                //    activateActionSetOnAttach.Deactivate(hand.handType);
+                //}
             }
 
             if (onDetachedFromHand != null)
@@ -328,10 +326,10 @@ namespace Valve.VR.InteractionSystem
                 attachedToHand.DetachObject(this.gameObject, false);
                 attachedToHand.skeleton.BlendToSkeleton(0.1f);
             }
-            
+
             if (highlightHolder != null)
                 Destroy(highlightHolder);
-            
+
         }
 
 
