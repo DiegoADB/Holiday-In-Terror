@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using Valve.VR.InteractionSystem;
 
 public class SCR_Guest : MonoBehaviour
 {
     protected bool bIsDead = false;
     protected bool bIsTakingDamage = false;
     protected float enemyHP = 0.0f;
-    protected GameObject damagingWeapon;
+    protected SCR_InteractableObject damagingWeapon;
 
     [Header("Detection")]
     [SerializeField]
@@ -71,8 +72,7 @@ public class SCR_Guest : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            //TODO: change to actual weapon class
-            damagingWeapon = other.gameObject;
+            damagingWeapon = other.gameObject.GetComponent<SCR_InteractableObject>();
         }
     }
 
@@ -142,6 +142,12 @@ public class SCR_Guest : MonoBehaviour
                     currentWaypointIndex = 0;
                 }
             }
+        }
+        else
+        {
+            idleSpeed = 0.0f;
+            detectedSpeed = 0.0f;
+            movespeed = idleSpeed;
         }
     }
 
@@ -256,7 +262,7 @@ public class SCR_Guest : MonoBehaviour
                     if (bOnEnterState)
                     {
                         GameObject myRagdoll = Instantiate(ragdoll);
-                        ragdoll.GetComponent<Rigidbody>().AddForce(ragdoll.transform.up * ragForce);
+                        ragdoll.GetComponent<Rigidbody>().AddForce(Vector3.up * ragForce);
                         Destroy(gameObject);
                         bOnEnterState = false;
                     }
