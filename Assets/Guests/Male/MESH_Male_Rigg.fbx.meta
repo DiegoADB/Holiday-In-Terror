@@ -148,7 +148,12 @@ ModelImporter:
     9500000: //RootNode
     13700000: MESH_Male
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 4cd16689217bbce4ba464f6cdbfde5f8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
