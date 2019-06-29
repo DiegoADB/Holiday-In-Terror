@@ -10,10 +10,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.15
+  m_Height: 0.1
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.22, z: -0.67}
 --- !u!195 &753529460
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b80e4d03da2d4c977a9ff242427b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHP: 0
   detectNoiseRange: 0
   detectionTimeout: 1
   ragForce: 0
-  ragdoll: {fileID: 2520470591471020841, guid: 5c157335bbaa9d24ea55b299c2e15eef, type: 3}
+  ragdoll: {fileID: 6297431159682865336, guid: 6d8f466da5377004bb3d6e2c811bccda, type: 3}
   waypoints: []
   idleSpeed: 0
   detectedSpeed: 0
@@ -119,10 +120,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1138450801723e04a81bbb946dbaf709, type: 2}
-    - target: {fileID: 13700000, guid: e55fb411bc55e2b45af2966b0fe20e05, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 14c35cd30ab914340a49522e01b89872, type: 2}
     - target: {fileID: 400000, guid: e55fb411bc55e2b45af2966b0fe20e05, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.739
@@ -135,6 +132,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.73899996
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e55fb411bc55e2b45af2966b0fe20e05, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14c35cd30ab914340a49522e01b89872, type: 2}
     - target: {fileID: 400122, guid: e55fb411bc55e2b45af2966b0fe20e05, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.5454821

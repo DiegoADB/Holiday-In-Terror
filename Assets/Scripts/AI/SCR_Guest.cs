@@ -268,6 +268,13 @@ public class SCR_Guest : MonoBehaviour
                     {
                         GameObject myRagdoll = Instantiate(ragdoll);
                         myRagdoll.transform.position = transform.position;
+                        myRagdoll.transform.rotation = transform.rotation;
+                        if (damagingWeapon)
+                        {
+                            Destroy(damagingWeapon.GetComponent<Rigidbody>());
+                            damagingWeapon.transform.SetParent(transform);
+                        }
+
                         ragdoll.GetComponent<Rigidbody>().AddForce(Vector3.up * ragForce);
                         Destroy(gameObject);
                         bOnEnterState = false;

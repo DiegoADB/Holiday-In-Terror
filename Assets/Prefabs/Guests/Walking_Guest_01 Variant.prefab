@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b80e4d03da2d4c977a9ff242427b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHP: 0
   detectNoiseRange: 100
   detectionTimeout: 1
   ragForce: 0
-  ragdoll: {fileID: 2520470591471020841, guid: 5c157335bbaa9d24ea55b299c2e15eef, type: 3}
+  ragdoll: {fileID: 4832500610095325074, guid: 781d9ad3ec69ee94b8844ff4312bd0e0, type: 3}
   waypoints: []
   idleSpeed: 1
   detectedSpeed: 1
