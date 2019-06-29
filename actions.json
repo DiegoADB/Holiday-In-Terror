@@ -41,6 +41,10 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/DPAD",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -72,12 +76,28 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/Thief/in/dPad",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/Thief/in/isGrabbinRight",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/Thief/in/isGrabbinLeft",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/Thief/in/asdasdasdas",
+      "type": "boolean"
     }
   ],
   "action_sets": [
     {
       "name": "/actions/default",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/platformer",
@@ -90,6 +110,10 @@
     {
       "name": "/actions/mixedreality",
       "usage": "single"
+    },
+    {
+      "name": "/actions/Thief",
+      "usage": "leftright"
     }
   ],
   "default_bindings": [
@@ -142,7 +166,11 @@
       "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
       "/actions/default/in/Teleport": "Teleport",
       "/actions/default/out/Haptic": "Haptic",
-      "/actions/platformer/in/Jump": "Jump"
+      "/actions/platformer/in/Jump": "Jump",
+      "/actions/default/in/DPAD": "dPad",
+      "/actions/Thief/in/dPad": "dPad",
+      "/actions/Thief/in/isGrabbinRight": "grabRight",
+      "/actions/Thief/in/isGrabbinLeft": "grabLeft"
     }
   ]
 }
