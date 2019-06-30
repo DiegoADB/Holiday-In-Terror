@@ -15,6 +15,7 @@ public class SCR_PlayerMovement : MonoBehaviour
     public GameObject parent;
     public GameObject vrCamera;
     public Rigidbody rBody;
+    public bool useRBody;
     public float forwardSpeed;
     public float strafeSpeed;
     public float backSpeed;
@@ -45,7 +46,6 @@ public class SCR_PlayerMovement : MonoBehaviour
     //Mueve al jugador
     void Movement()
     {
-        Debug.Log(trackpadValues);
         //Consigue la posicion del player
         trackpadValues = SteamVR_Input.GetVector2("dPad", hand.handType, true);
 
@@ -71,7 +71,14 @@ public class SCR_PlayerMovement : MonoBehaviour
         }
 
         //Tengo retraso nocturno alguien que haga bien el movimiento xd ya recibe los valores del control xd o yo mas al rato :p
-        parent.transform.position += Quaternion.Euler(Vector3.up * vrCamera.transform.rotation.eulerAngles.y) * speed;
+        if (useRBody)
+        {
+            rBody.AddForce(Quaternion.Euler(Vector3.up * vrCamera.transform.rotation.eulerAngles.y) * speed, ForceMode.Force);
+        }
+        else
+        {
+            parent.transform.position += Quaternion.Euler(Vector3.up * vrCamera.transform.rotation.eulerAngles.y) * speed;
+        }
     }
 
     //Consigue la posicion del player - Delegate

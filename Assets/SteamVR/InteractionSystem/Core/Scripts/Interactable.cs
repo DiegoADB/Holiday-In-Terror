@@ -16,6 +16,7 @@ namespace Valve.VR.InteractionSystem
     //-------------------------------------------------------------------------
     public class Interactable : MonoBehaviour
     {
+        public bool isPenetrable;
         public float damage;
 
         [Tooltip("Activates an action set on attach and deactivates on detach")]
@@ -234,6 +235,9 @@ namespace Valve.VR.InteractionSystem
         /// <summary>
         /// Called when a Hand starts hovering over this object
         /// </summary>
+        /// 
+
+        //protected virtual void 
         protected virtual void OnHandHoverBegin(Hand hand)
         {
             wasHovering = isHovering;

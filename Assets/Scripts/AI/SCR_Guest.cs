@@ -26,6 +26,7 @@ public class SCR_Guest : MonoBehaviour
     protected float ragForce;
     [SerializeField]
     protected GameObject ragdoll;
+    protected bool bIsHeadshot = false;
 
     [Header("State Machine")]
     protected bool bOnEnterState = true;
@@ -73,8 +74,10 @@ public class SCR_Guest : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            damagingWeapon = other.gameObject.GetComponent<Interactable>();
-            Debug.Log(damagingWeapon.name);
+            if (!other.gameObject.transform.parent.GetComponent<Interactable>().isPenetrable)
+            {
+                damagingWeapon = other.gameObject.transform.parent.GetComponent<Interactable>();
+            }
         }
     }
 
@@ -82,8 +85,10 @@ public class SCR_Guest : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            GameObject blood = Instantiate(bloodParticles);
-            blood.transform.position = other.ClosestPointOnBounds(transform.position);
+            if (!other.gameObject.transform.parent.GetComponent<Interactable>().isPenetrable)
+            {
+                SpawnBlood(other.ClosestPointOnBounds(transform.position));
+            }
         }
     }
 
@@ -105,6 +110,12 @@ public class SCR_Guest : MonoBehaviour
         bIsDead = enemyHP <= 0 ? true : false;
     }
 
+    public virtual void SpawnBlood(Vector3 _pos)
+    {
+        GameObject blood = Instantiate(bloodParticles);
+        blood.transform.position = _pos;
+    }
+
     protected virtual void SetTakingDamage(bool _state)
     {
         bIsTakingDamage = _state;
@@ -113,6 +124,17 @@ public class SCR_Guest : MonoBehaviour
     public virtual void SetState(GuestState _newState)
     {
         currentState = _newState;
+    }
+
+    public virtual void SetInteractable(Interactable _interactable)
+    {
+        damagingWeapon = _interactable;
+        bIsHeadshot = true;
+    }
+
+    public virtual void ClearWeapon()
+    {
+        damagingWeapon = null;
     }
 
     public virtual void AnimationUpdate()
@@ -271,12 +293,25 @@ public class SCR_Guest : MonoBehaviour
                         myRagdoll.transform.rotation = transform.rotation;
                         if (damagingWeapon)
                         {
-                            Destroy(damagingWeapon.GetComponent<Rigidbody>());
-                            damagingWeapon.transform.SetParent(transform);
+                            damagingWeapon.GetComponentInChildren<BoxCollider>().enabled = false;
+                            damagingWeapon.GetComponent<Rigidbody>().useGravity = false;
+                            damagingWeapon.GetComponent<Rigidbody>().isKinematic = true;
+                            damagingWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                           
+                            damagingWeapon.transform.GetChild(0).SetParent(myRagdoll.transform.Find("mixamorig:Hips"));
+
+                            myRagdoll.transform.GetChild(0).transform.position = damagingWeapon.transform.position;
+                            myRagdoll.transform.GetChild(0).transform.rotation = damagingWeapon.transform.rotation;
+
+
+
+
+                            damagingWeapon.enabled = false;
                         }
 
                         ragdoll.GetComponent<Rigidbody>().AddForce(Vector3.up * ragForce);
                         Destroy(gameObject);
+                        Destroy(myRagdoll, 5.0f);
                         bOnEnterState = false;
                     }
 
