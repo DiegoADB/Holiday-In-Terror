@@ -94,7 +94,16 @@ public class SCR_PlayerMovement : MonoBehaviour
         //Tengo retraso nocturno alguien que haga bien el movimiento xd ya recibe los valores del control xd o yo mas al rato :p
         if (useRBody)
         {
-            rBody.AddForce(Quaternion.Euler(Vector3.up * vrCamera.transform.rotation.eulerAngles.y) * speed, ForceMode.Force);
+            if (speed != Vector3.zero)
+            {
+                rBody.AddForce(Quaternion.Euler(Vector3.up * vrCamera.transform.rotation.eulerAngles.y) * speed, ForceMode.Impulse);
+                //rBody.AddForce(new Vector3(speed.x, 0, speed.z), ForceMode.Impulse);
+
+            }
+            else
+            {
+                rBody.velocity = Vector3.zero;
+            }
         }
         else
         {

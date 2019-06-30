@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1360897074}
   - component: {fileID: 1360897076}
   - component: {fileID: 1805687909946085516}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Almohada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 138972617093318866}
   - component: {fileID: 6178141982978145151}
   - component: {fileID: 2257195322714938450}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_Almohada
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb2863b97e933fe41b00b17fe24fd1b2, type: 3}
+  - {fileID: 2100000, guid: 4e71b0d40485ffb478a0ffb5563f92b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

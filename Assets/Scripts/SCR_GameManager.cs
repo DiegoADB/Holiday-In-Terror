@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SCR_GameManager : MonoBehaviour
 {
-    public static List<StolenThing> thingsStolen; 
+    public static List<StolenThing> thingsStolen = new List<StolenThing>(); 
 
 
     //WIP

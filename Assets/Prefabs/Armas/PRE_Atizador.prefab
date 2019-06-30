@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 416076729957161855}
   - component: {fileID: 9176091059209486287}
   - component: {fileID: 365037555}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Atizador
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3401151748351781053}
   - component: {fileID: 7357516861337883437}
   - component: {fileID: 1079819286}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RenderAtizador
   m_TagString: Weapon
   m_Icon: {fileID: 0}

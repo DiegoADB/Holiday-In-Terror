@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SCN_PlayerTesting.unity
+    guid: 53d4fd7524acc5c40b736ec8946cc4d5
+  - enabled: 1
+    path: Assets/Hotelxdman/Scenes/Game.unity
+    guid: 0fff88fd32026db4080b266d2f1abe92
+  - enabled: 1
+    path: Assets/Scenes/END.unity
+    guid: e936485fa373e2a4690d3497d9c64224
   m_configObjects: {}

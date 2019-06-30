@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public AudioClip playStart;
+    public AudioClip hoverButton;
+    public AudioClip pressButton;
+    public AudioClip pressBack;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -24,16 +29,18 @@ public class UIManager : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        SceneManager.LoadScene(MainGameScene);
+        StartCoroutine(PlayStart());
     }
     
     public void OnExitButtonClicked()
     {
+        audioSource.PlayOneShot(pressButton, 0.7f);
         Application.Quit();
     }
 
     public void OnCreditButtonClicked()
     {
+        audioSource.PlayOneShot(pressButton, 0.7f);
         b_creditsActive = !b_creditsActive;
         creditCanvas.SetActive(b_creditsActive);
         mainCanvas.SetActive(!b_creditsActive);
@@ -41,6 +48,14 @@ public class UIManager : MonoBehaviour
 
     public void OnButtonHover()
     {
-        audioSource.Play();
     }
+
+    IEnumerator PlayStart()
+    {
+        audioSource.PlayOneShot(playStart, 0.7f);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(MainGameScene);
+    }
+
+    
 }

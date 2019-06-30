@@ -91,6 +91,9 @@ GameObject:
   - component: {fileID: 4630876793703878646}
   - component: {fileID: 4630876793703878647}
   - component: {fileID: 4630876793703878640}
+  - component: {fileID: 1373636616}
+  - component: {fileID: 1373636614}
+  - component: {fileID: 1373636615}
   m_Layer: 5
   m_Name: BTN_Credits
   m_TagString: Untagged
@@ -182,9 +185,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182,
-      type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -194,6 +196,36 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4630876793703878647}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!65 &1373636616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876793703878642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 315.3, y: 69.5, z: 22.96}
+  m_Center: {x: 0, y: -44.3, z: 0}
+--- !u!114 &1373636614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876793703878642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cd2ef2dd3d5d64e96af4420220d1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHandClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4630876794601465879}
@@ -207,8 +239,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  audioSource: {fileID: 750342314}
+  customClip: {fileID: 8300000, guid: 7ded9244fb5715642aa12c7f8b9e6e87, type: 3}
+--- !u!114 &1373636615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876793703878642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPenetrable: 0
+  damage: 0
+  activateActionSetOnAttach:
+    actionPath: 
+    needsReinit: 0
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+  hand: {fileID: 0}
 --- !u!1 &4630876793724282211
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +461,9 @@ GameObject:
   - component: {fileID: 4630876794420870817}
   - component: {fileID: 4630876794420870818}
   - component: {fileID: 4630876794420870819}
+  - component: {fileID: 1527677601}
+  - component: {fileID: 1527677599}
+  - component: {fileID: 1527677600}
   m_Layer: 5
   m_Name: BTN_Exit
   m_TagString: Untagged
@@ -463,9 +555,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182,
-      type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -475,6 +566,36 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4630876794420870818}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!65 &1527677601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794420870829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 305.16, y: 74.6, z: 22}
+  m_Center: {x: 0, y: -44.62, z: 0}
+--- !u!114 &1527677599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794420870829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cd2ef2dd3d5d64e96af4420220d1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHandClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4630876794601465879}
@@ -488,8 +609,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  audioSource: {fileID: 750342314}
+  customClip: {fileID: 8300000, guid: 7ded9244fb5715642aa12c7f8b9e6e87, type: 3}
+--- !u!114 &1527677600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794420870829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPenetrable: 0
+  damage: 0
+  activateActionSetOnAttach:
+    actionPath: 
+    needsReinit: 0
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+  hand: {fileID: 0}
 --- !u!1 &4630876794551228607
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +680,9 @@ GameObject:
   - component: {fileID: 4630876794551228595}
   - component: {fileID: 4630876794551228604}
   - component: {fileID: 4630876794551228605}
+  - component: {fileID: 837836832}
+  - component: {fileID: 837836833}
+  - component: {fileID: 837836834}
   m_Layer: 5
   m_Name: BTN_BackToMain
   m_TagString: Untagged
@@ -526,8 +707,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 349.35, y: -268}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294, y: -212}
+  m_SizeDelta: {x: 243.3, y: 45.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4630876794551228595
 CanvasRenderer:
@@ -606,6 +787,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4630876794551228604}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!65 &837836832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794551228607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 231.16, y: 39.61, z: 22.14}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &837836833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794551228607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cd2ef2dd3d5d64e96af4420220d1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHandClick:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4630876794601465879}
         m_MethodName: OnCreditButtonClicked
@@ -618,8 +829,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  audioSource: {fileID: 0}
+  customClip: {fileID: 0}
+--- !u!114 &837836834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794551228607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPenetrable: 0
+  damage: 0
+  activateActionSetOnAttach:
+    actionPath: 
+    needsReinit: 0
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+  hand: {fileID: 0}
 --- !u!1 &4630876794557224130
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +1054,7 @@ GameObject:
   - component: {fileID: 4630876794601465874}
   - component: {fileID: 4630876794601465875}
   - component: {fileID: 4630876794601465879}
+  - component: {fileID: 750342314}
   m_Layer: 5
   m_Name: Main Menu World
   m_TagString: Untagged
@@ -802,14 +1071,14 @@ RectTransform:
   m_GameObject: {fileID: 4630876794601465884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0040207454, y: 0.0040207454, z: 0.0040207454}
+  m_LocalScale: {x: 0.0015698196, y: 0.0015698196, z: 0.0015698196}
   m_Children:
   - {fileID: 4630876794261264861}
   - {fileID: 4630876795462326827}
   - {fileID: 4630876794611417813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 52.423004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.2}
@@ -887,9 +1156,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fb59336217e534282ccdcf0f3c40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainGameScene: 
+  MainGameScene: Game
   creditCanvas: {fileID: 4630876794611417814}
   mainCanvas: {fileID: 4630876795462326836}
+  playStart: {fileID: 8300000, guid: 11f62477109c97c4ea6febee1ef7d955, type: 3}
+  hoverButton: {fileID: 8300000, guid: 7ded9244fb5715642aa12c7f8b9e6e87, type: 3}
+  pressButton: {fileID: 8300000, guid: 58cb29c91cf160149821be3bdcac6659, type: 3}
+  pressBack: {fileID: 8300000, guid: 6d55ec1a3f11577489a6b8729586489f, type: 3}
+--- !u!82 &750342314
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794601465884}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 11f62477109c97c4ea6febee1ef7d955, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.469
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4630876794611417814
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +1272,7 @@ GameObject:
   - component: {fileID: 4630876794611417812}
   - component: {fileID: 4630876794611417802}
   - component: {fileID: 4630876794611417801}
+  - component: {fileID: 356897287}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1013,6 +1383,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &356897287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876794611417814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bb508076d43343a294e692bea8420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4630876794910578145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,11 +1552,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "<size=90%>Future Game Developers Jam 2019</size>\n\n\n\n\n\n\n\n<size=60%>Team
-    Alpha Males</size>\n\n\n\n\n\n\n<size=60%>Lead Artist</size>\n<size=30%>Axel Bribiesca</size>\n\n<size=60%>Lead
-    Programmer</size>\n<size=30%>Diego D\xEDaz</size>\n\n<size=60%>Level Design</size>\n<size=30%>Santiago
-    Guti\xE9rrez</size>\n\n<size=60%>3D Modeling</size>\n<size=30%>Axel Bribiesca\nI\xF1aki
-    del Castillo\nAlejandro Dulch\xE9\nNicole Hern\xE1ndez\nSantiago Guti\xE9rrez</size>\n\n<size=60%>Textures</size>\n<size=30%>Axel
+  m_Text: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<size=90%>Future
+    Game Developers Jam 2019</size>\n\n\n\n\n\n\n\n<size=60%>Team Alpha Males</size>\n\n\n\n\n\n\n<size=60%>Lead
+    Artist</size>\n<size=30%>Axel Bribiesca</size>\n\n<size=60%>Lead Programmer</size>\n<size=30%>Diego
+    D\xEDaz</size>\n\n<size=60%>Level Design</size>\n<size=30%>Santiago Guti\xE9rrez</size>\n\n<size=60%>3D
+    Modeling</size>\n<size=30%>Axel Bribiesca\nI\xF1aki del Castillo\nAlejandro Dulch\xE9\nNicole
+    Hern\xE1ndez\nSantiago Guti\xE9rrez</size>\n\n<size=60%>Textures</size>\n<size=30%>Axel
     Bribiesca\nI\xF1aki del Castillo\nAlejandro Dulch\xE9\nNicole Hern\xE1ndez\nSantiago
     Guti\xE9rrez</size>\n\n<size=60%>Animations</size>\n<size=30%>Nicole Hern\xE1ndez\nDon
     Mixamo</size>\n\n<size=60%>2D Graphics</size>\n<size=30%>Maureen Garc\xEDa</size>\n\n<size=60%>Gameplay
@@ -1194,6 +1577,9 @@ GameObject:
   - component: {fileID: 4630876795387205329}
   - component: {fileID: 4630876795387205330}
   - component: {fileID: 4630876795387205331}
+  - component: {fileID: 2088578260}
+  - component: {fileID: 2088578258}
+  - component: {fileID: 2088578259}
   m_Layer: 5
   m_Name: BTN_Play
   m_TagString: Untagged
@@ -1285,9 +1671,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182,
-      type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300008, guid: 998c5d62b0cda3d4d964f270aa632182, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1297,6 +1682,36 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4630876795387205330}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!65 &2088578260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876795387205341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 526.44, y: 121.21, z: 22.73}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2088578258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876795387205341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cd2ef2dd3d5d64e96af4420220d1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHandClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4630876794601465879}
@@ -1310,8 +1725,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  audioSource: {fileID: 750342314}
+  customClip: {fileID: 8300000, guid: 7ded9244fb5715642aa12c7f8b9e6e87, type: 3}
+--- !u!114 &2088578259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630876795387205341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPenetrable: 0
+  damage: 0
+  activateActionSetOnAttach:
+    actionPath: 
+    needsReinit: 0
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+  hand: {fileID: 0}
 --- !u!1 &4630876795462326836
 GameObject:
   m_ObjectHideFlags: 0

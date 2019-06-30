@@ -19,6 +19,9 @@ namespace Valve.VR.InteractionSystem
 
         protected Hand currentHand;
 
+        public AudioSource audioSource;
+        public AudioClip customClip;
+
 		//-------------------------------------------------
 		protected virtual void Awake()
 		{
@@ -30,9 +33,10 @@ namespace Valve.VR.InteractionSystem
 		}
 
 
-		//-------------------------------------------------
-		protected virtual void OnHandHoverBegin( Hand hand )
-		{
+        //-------------------------------------------------
+        protected virtual void OnHandHoverBegin(Hand hand)
+        {
+            audioSource.PlayOneShot(customClip, 0.7f);
 			currentHand = hand;
 			InputModule.instance.HoverBegin( gameObject );
 			ControllerButtonHints.ShowButtonHint( hand, hand.uiInteractAction);
@@ -63,7 +67,7 @@ namespace Valve.VR.InteractionSystem
         protected virtual void OnButtonClick()
 		{
 			onHandClick.Invoke( currentHand );
-		}
+        }
 	}
 
 #if UNITY_EDITOR

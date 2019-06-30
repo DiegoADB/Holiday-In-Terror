@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1052189635867209114}
   - component: {fileID: 678567357974074475}
   - component: {fileID: 7492528093022205250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Machete
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3720779095809510782}
   - component: {fileID: 2204468951365838212}
   - component: {fileID: 5414943041773014689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_Machete
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -277,8 +277,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 936dcec560a0c4f45817a19cb3c72a3c, type: 3}
-  - {fileID: 2100002, guid: 936dcec560a0c4f45817a19cb3c72a3c, type: 3}
+  - {fileID: 2100000, guid: cc92c11dd6aa30e48be0b6e6ae66edf1, type: 2}
+  - {fileID: 2100000, guid: 470a25afb69febd468e1da5c19ac30a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

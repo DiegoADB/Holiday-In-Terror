@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1252638540}
   - component: {fileID: 1252638539}
   - component: {fileID: 5282044107979238827}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Cuchillo
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5533379785521096926}
   - component: {fileID: 7310620856206194612}
   - component: {fileID: 4591825767083369229}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_Cuchillo
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -301,8 +301,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6035fba479c86f44f8f14692fa8cb9e0, type: 3}
-  - {fileID: 2100002, guid: 6035fba479c86f44f8f14692fa8cb9e0, type: 3}
+  - {fileID: 2100000, guid: 4e71b0d40485ffb478a0ffb5563f92b5, type: 2}
+  - {fileID: 2100000, guid: 470a25afb69febd468e1da5c19ac30a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1544165070}
   - component: {fileID: 1544165069}
   - component: {fileID: 7182426714186080560}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_Cuchara
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc3da5efb9cb6f24596a44cc8e932739, type: 3}
+  - {fileID: 2100000, guid: cc92c11dd6aa30e48be0b6e6ae66edf1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2724910431334322958}
   - component: {fileID: 3277097634262432024}
   - component: {fileID: 2563531791341826506}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Cuchara
   m_TagString: Weapon
   m_Icon: {fileID: 0}

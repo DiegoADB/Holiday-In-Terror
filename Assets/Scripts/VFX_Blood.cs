@@ -18,10 +18,11 @@ public class VFX_Blood : MonoBehaviour
 
     public Transform spawnBlood;
 
-    public void InstantiateBlood(Transform parentTransform)
+    public GameObject InstantiateBlood()
     {
-        tempBloodGo = Instantiate(bloodParticle, parentTransform);
+        tempBloodGo = Instantiate(bloodParticle);
         StartCoroutine(FadeBlood());
+        return tempBloodGo;
     }
 
     IEnumerator FadeBlood()
@@ -39,9 +40,9 @@ public class VFX_Blood : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            InstantiateBlood(spawnBlood);
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    InstantiateBlood(spawnBlood);
+        //}
     }
 }

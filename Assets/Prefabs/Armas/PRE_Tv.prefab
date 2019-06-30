@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1479904265320309418}
   - component: {fileID: 886120623812115511}
   - component: {fileID: 7768434972330552403}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Tv
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 2965830167922364786}
   - component: {fileID: 2864528742573952235}
   - component: {fileID: 5594150767408687179}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_TV
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -277,8 +277,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e77a61c1789a6984c856ec608c35dea3, type: 3}
-  - {fileID: 2100002, guid: e77a61c1789a6984c856ec608c35dea3, type: 3}
+  - {fileID: 2100000, guid: 470a25afb69febd468e1da5c19ac30a5, type: 2}
+  - {fileID: 2100000, guid: 5151f197b2a803747b2a07ef1690900a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

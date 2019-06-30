@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6147667555276033374}
   - component: {fileID: 7169996366090397341}
   - component: {fileID: 6394092289867492828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MSH_Jarron
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7df9cb9f64389fa439f4205dd972fc2e, type: 3}
+  - {fileID: 2100000, guid: 639452d28fd31084e884ee0bea1c0a89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8010009971776530004}
   - component: {fileID: 2119378030796282085}
   - component: {fileID: 3152608547558875887}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Jarron
   m_TagString: Weapon
   m_Icon: {fileID: 0}

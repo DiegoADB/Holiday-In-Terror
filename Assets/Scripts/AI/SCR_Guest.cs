@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 using Valve.VR.InteractionSystem;
+using UnityEngine.SceneManagement;
 
 public class SCR_Guest : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class SCR_Guest : MonoBehaviour
     protected float detectionTimeout = 1.0f;
     protected float detectionTimer = 0.0f;
     protected Transform playerTransform;
+    public bool canKillYou = false;
 
     [Header("Ragdoll")]
     [SerializeField]
@@ -64,6 +65,8 @@ public class SCR_Guest : MonoBehaviour
     protected AudioSource bloodAudio;
 
 
+    VFX_Blood bloodScript;
+
     public enum GuestState
     {
         IDLE,
@@ -78,6 +81,7 @@ public class SCR_Guest : MonoBehaviour
         myNav = GetComponent<NavMeshAgent>();
         myAnim = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        bloodScript = FindObjectOfType<VFX_Blood>();
     }
 
     protected void Update()
@@ -127,7 +131,7 @@ public class SCR_Guest : MonoBehaviour
 
     public virtual void SpawnBlood(Vector3 _pos)
     {
-        GameObject blood = Instantiate(bloodParticles);
+        GameObject blood = bloodScript.InstantiateBlood();
         blood.transform.position = _pos;
         bloodAudio.clip = bloodClip;
         bloodAudio.Play();
@@ -175,7 +179,7 @@ public class SCR_Guest : MonoBehaviour
             }
 
             myNav.SetDestination(waypoints[currentWaypointIndex].position);
-            if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) <= 2.0f)
+            if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) <= 0.5f)
             {
                 currentWaypointIndex++;
                 if (currentWaypointIndex >= waypoints.Count)
@@ -202,16 +206,19 @@ public class SCR_Guest : MonoBehaviour
         Vector3 endPosition = playerTransform.position;
         
         RaycastHit hit;
-        if (Physics.Linecast(startPosition, endPosition, out hit))
+        //Debug.Log(Vector3.Distance(transform.position, playerTransform.position));
+        if (Vector3.Distance(transform.position, playerTransform.position) < 3)
         {
-            if (hit.transform.CompareTag("Player"))
+            if (Physics.Linecast(startPosition, endPosition, out hit))
             {
-                if (Vector3.Dot(transform.position.normalized, playerTransform.position.normalized) > 0.5f)
+                if (hit.transform.CompareTag("Player"))
                 {
                     SetState(GuestState.DETECTED_PLAYER);
                 }
             }
         }
+
+        
     }
 
     void PlaySound(AudioClip _clip)
@@ -262,11 +269,11 @@ public class SCR_Guest : MonoBehaviour
                         detectionTimer = 0.0f;
                         bOnEnterState = false;
                     }
-
+                    myNav.SetDestination(playerTransform.position);
                     detectionTimer += Time.deltaTime;
-                    if (detectionTimer >= detectionTimeout)
+                    if (detectionTimer >= detectionTimeout && canKillYou)
                     {
-                        SceneManager.LoadScene("Game");
+                        SceneManager.LoadScene("END");
                     }
                     else if (bIsDead)
                     {
