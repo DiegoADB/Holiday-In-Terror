@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class UIManager : MonoBehaviour
 
     private bool b_creditsActive = false;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void OnPlayButtonClicked()
     {
@@ -30,5 +37,10 @@ public class UIManager : MonoBehaviour
         b_creditsActive = !b_creditsActive;
         creditCanvas.SetActive(b_creditsActive);
         mainCanvas.SetActive(!b_creditsActive);
+    }
+
+    public void OnButtonHover()
+    {
+        audioSource.Play();
     }
 }
