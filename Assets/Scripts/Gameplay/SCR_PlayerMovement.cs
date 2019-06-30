@@ -19,6 +19,9 @@ public class SCR_PlayerMovement : MonoBehaviour
     public float forwardSpeed;
     public float strafeSpeed;
     public float backSpeed;
+    [Header("Grabs")]
+    public GameObject grabCollider;
+    public bool isTriggered;
 
     Vector2 trackpadValues;
     Vector3 speed = Vector3.zero;
@@ -43,6 +46,24 @@ public class SCR_PlayerMovement : MonoBehaviour
     {
         Movement();
     }
+
+    //Prende collider para poder agarrar joyas, abrir puertas, etc.
+    void Grabbing()
+    {
+        isTriggered = SteamVR_Input.GetState("isGrabbinRight",hand.handType);
+
+        if(isTriggered)
+        {
+            grabCollider.SetActive(true);
+        }
+        else
+        {
+            grabCollider.SetActive(false);
+
+        }
+    }
+
+
     //Mueve al jugador
     void Movement()
     {
