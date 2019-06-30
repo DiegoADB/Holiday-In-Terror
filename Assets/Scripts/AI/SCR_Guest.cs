@@ -49,6 +49,21 @@ public class SCR_Guest : MonoBehaviour
     [SerializeField]
     protected GameObject bloodParticles;
 
+    [Header("Audio")]
+    [SerializeField]
+    protected AudioClip takingDamageClip;
+    [SerializeField]
+    protected AudioClip idleClip;
+    [SerializeField]
+    protected AudioClip detectedClip;
+    [SerializeField]
+    protected AudioClip bloodClip;
+    [SerializeField]
+    protected AudioSource myAudio;
+    [SerializeField]
+    protected AudioSource bloodAudio;
+
+
     public enum GuestState
     {
         IDLE,
@@ -114,6 +129,8 @@ public class SCR_Guest : MonoBehaviour
     {
         GameObject blood = Instantiate(bloodParticles);
         blood.transform.position = _pos;
+        bloodAudio.clip = bloodClip;
+        bloodAudio.Play();
     }
 
     protected virtual void SetTakingDamage(bool _state)
@@ -197,6 +214,15 @@ public class SCR_Guest : MonoBehaviour
         }
     }
 
+    void PlaySound(AudioClip _clip)
+    {
+        if (!_clip)
+            return;
+        myAudio.Stop();
+        myAudio.clip = _clip;
+        myAudio.Play();
+    }
+
     protected virtual void StateMachine()
     {
         switch (currentState)
@@ -205,6 +231,7 @@ public class SCR_Guest : MonoBehaviour
                 {
                     if (bOnEnterState)
                     {
+                        PlaySound(idleClip);
                         movespeed = idleSpeed;
                         bOnEnterState = false;
                     }
@@ -230,6 +257,7 @@ public class SCR_Guest : MonoBehaviour
                 {
                     if (bOnEnterState)
                     {
+                        PlaySound(detectedClip);
                         movespeed = detectedSpeed;
                         detectionTimer = 0.0f;
                         bOnEnterState = false;
@@ -260,9 +288,19 @@ public class SCR_Guest : MonoBehaviour
                 {
                     if (bOnEnterState)
                     {
+                        PlaySound(takingDamageClip);
+
                         SetTakingDamage(true);
                         bOnEnterState = false;
                     }
+                    float damage = 100.0f;
+                    if (damagingWeapon)
+                    {
+                        damage = damagingWeapon.damage;
+                    }
+
+                    TakeDamage(damage);
+
 
                     if (bIsDead)
                     {
@@ -271,10 +309,6 @@ public class SCR_Guest : MonoBehaviour
                     else if (!damagingWeapon || damagingWeapon.damage == 0)
                     {
                         SetState(GuestState.DETECTED_PLAYER);
-                    }
-                    else if (damagingWeapon)
-                    {
-                        TakeDamage(damagingWeapon.damage);
                     }
 
                     if (currentState != GuestState.TAKING_DAMAGE)

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 713457090369769246, guid: 8f7ae965661a34d49b3dee2c8f01b9b2,
         type: 3}
       propertyPath: m_Name
-      value: Walking_Guest_01 Variant
+      value: Walking_Guest_01 Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 713457090370130750, guid: 8f7ae965661a34d49b3dee2c8f01b9b2,
         type: 3}
@@ -72,6 +72,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4494317029589188876, guid: 9245219edc44d1244bc46b6eb4a97e42,
         type: 3}
+    - target: {fileID: 1789952029, guid: 8f7ae965661a34d49b3dee2c8f01b9b2, type: 3}
+      propertyPath: enemyHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789952029, guid: 8f7ae965661a34d49b3dee2c8f01b9b2, type: 3}
+      propertyPath: ragForce
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 713457090356167196, guid: 8f7ae965661a34d49b3dee2c8f01b9b2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
