@@ -9,6 +9,7 @@ public class SCR_Guest : MonoBehaviour
 {
     protected bool bIsDead = false;
     protected bool bIsTakingDamage = false;
+
     [SerializeField]
     protected float enemyHP = 0.0f;
     protected Interactable damagingWeapon;
@@ -65,18 +66,20 @@ public class SCR_Guest : MonoBehaviour
     protected AudioSource bloodAudio;
 
 
-    VFX_Blood bloodScript;
+    protected VFX_Blood bloodScript;
 
     public enum GuestState
     {
         IDLE,
         DETECTED_PLAYER,
         TAKING_DAMAGE,
+        INVESTIGATING,
+        STAGGERED,
         DEAD
     }
-    protected GuestState currentState = GuestState.IDLE;
+    public GuestState currentState = GuestState.IDLE;
 
-    protected void Start()
+    protected virtual void Start()
     {
         myNav = GetComponent<NavMeshAgent>();
         myAnim = GetComponent<Animator>();
@@ -108,6 +111,10 @@ public class SCR_Guest : MonoBehaviour
             {
                 SpawnBlood(other.ClosestPointOnBounds(transform.position));
             }
+        }
+        else if (other.CompareTag("Flashlight"))
+        {
+            SetState(GuestState.STAGGERED);
         }
     }
 
@@ -206,7 +213,6 @@ public class SCR_Guest : MonoBehaviour
         Vector3 endPosition = playerTransform.position;
         
         RaycastHit hit;
-        //Debug.Log(Vector3.Distance(transform.position, playerTransform.position));
         if (Vector3.Distance(transform.position, playerTransform.position) < 3)
         {
             if (Physics.Linecast(startPosition, endPosition, out hit))
@@ -221,7 +227,7 @@ public class SCR_Guest : MonoBehaviour
         
     }
 
-    void PlaySound(AudioClip _clip)
+    protected void PlaySound(AudioClip _clip)
     {
         if (!_clip)
             return;
@@ -325,6 +331,30 @@ public class SCR_Guest : MonoBehaviour
                     }
                 }
                 break;
+            case GuestState.STAGGERED:
+                {
+                    if (bOnEnterState)
+                    {
+                        myAnim.SetTrigger("Staggered");
+                        bOnEnterState = false;
+                    }
+
+
+                    if (damagingWeapon)
+                    {
+                        SetState(GuestState.TAKING_DAMAGE);
+                    }
+                    else if (bIsDead)
+                    {
+                        SetState(GuestState.DEAD);
+                    }
+
+                    if (currentState != GuestState.STAGGERED)
+                    {
+                        bOnEnterState = true;
+                    }
+                }
+                break;
             case GuestState.DEAD:
                 {
                     if (bOnEnterState)
@@ -345,7 +375,11 @@ public class SCR_Guest : MonoBehaviour
                             myRagdoll.transform.GetChild(0).transform.rotation = damagingWeapon.transform.rotation;
 
 
-
+                            SCR_BotonesAI[] botones = FindObjectsOfType<SCR_BotonesAI>();
+                            for (int i = 0; i < botones.Length; i++)
+                            {
+                                botones[i].guests.Remove(this);
+                            }
 
                             damagingWeapon.enabled = false;
                         }
@@ -367,6 +401,4 @@ public class SCR_Guest : MonoBehaviour
         AnimationUpdate();
         myNav.speed = movespeed;
     }
-
-
 }
