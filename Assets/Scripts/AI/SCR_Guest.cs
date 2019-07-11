@@ -9,6 +9,7 @@ public class SCR_Guest : MonoBehaviour
 {
     protected bool bIsDead = false;
     protected bool bIsTakingDamage = false;
+    protected bool bSpottedPlayer = false;
 
     [SerializeField]
     protected float enemyHP = 0.0f;
@@ -169,6 +170,7 @@ public class SCR_Guest : MonoBehaviour
     {
         myAnim.SetBool("Taking_Damage", bIsTakingDamage);
         myAnim.SetBool("Dead", bIsDead);
+        myAnim.SetBool("Spotted", bSpottedPlayer);
         myAnim.SetFloat("Movespeed", movespeed, 0.2f, Time.deltaTime);
     }
 
@@ -271,6 +273,7 @@ public class SCR_Guest : MonoBehaviour
                     if (bOnEnterState)
                     {
                         PlaySound(detectedClip);
+                        bSpottedPlayer = true;
                         movespeed = detectedSpeed;
                         detectionTimer = 0.0f;
                         bOnEnterState = false;
@@ -293,6 +296,7 @@ public class SCR_Guest : MonoBehaviour
 
                     if (currentState != GuestState.DETECTED_PLAYER)
                     {
+                        bSpottedPlayer = false;
                         bOnEnterState = true;
                     }
                 }

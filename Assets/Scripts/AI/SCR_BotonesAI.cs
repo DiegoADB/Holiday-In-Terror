@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class SCR_BotonesAI : SCR_Guest
 {
     public List<SCR_Guest> guests = new List<SCR_Guest>();
-
+    private float hitTimer = 0;
     protected override void Start()
     {
         myNav = GetComponent<NavMeshAgent>();
@@ -76,6 +76,7 @@ public class SCR_BotonesAI : SCR_Guest
                 {
                     if (bOnEnterState)
                     {
+                        bSpottedPlayer = true;
                         PlaySound(detectedClip);
                         movespeed = detectedSpeed;
                         detectionTimer = 0.0f;
@@ -83,7 +84,8 @@ public class SCR_BotonesAI : SCR_Guest
                     }
                     myNav.SetDestination(playerTransform.position);
                     detectionTimer += Time.deltaTime;
-                    if (detectionTimer >= detectionTimeout && canKillYou)
+                    float playerDistance = Vector3.Distance(transform.position, playerTransform.position);
+                    if (detectionTimer >= detectionTimeout && canKillYou && playerDistance < 1)
                     {
                         SceneManager.LoadScene("END");
                     }
@@ -91,7 +93,7 @@ public class SCR_BotonesAI : SCR_Guest
                     {
                         SetState(GuestState.DEAD);
                     }
-                    else if (damagingWeapon)
+                    if (damagingWeapon)
                     {
                         SetState(GuestState.TAKING_DAMAGE);
                     }
@@ -99,6 +101,7 @@ public class SCR_BotonesAI : SCR_Guest
 
                     if (currentState != GuestState.DETECTED_PLAYER)
                     {
+                        bSpottedPlayer = false;
                         bOnEnterState = true;
                     }
                 }
@@ -108,25 +111,24 @@ public class SCR_BotonesAI : SCR_Guest
                     if (bOnEnterState)
                     {
                         myNav.isStopped = true;
+                        hitTimer = 0;
                         PlaySound(takingDamageClip);
 
                         SetTakingDamage(true);
                         bOnEnterState = false;
                     }
-                    float damage = 100.0f;
-                    if (damagingWeapon)
-                    {
-                        damage = damagingWeapon.damage;
-                    }
 
-                    TakeDamage(damage);
+                    hitTimer += Time.deltaTime;
+
+                    TakeDamage(0);
+
 
 
                     if (bIsDead)
                     {
                         SetState(GuestState.DEAD);
                     }
-                    else if (!damagingWeapon || damagingWeapon.damage == 0)
+                    else if (!damagingWeapon && hitTimer >= 1.0f)
                     {
                         SetState(GuestState.DETECTED_PLAYER);
                     }
@@ -143,15 +145,22 @@ public class SCR_BotonesAI : SCR_Guest
                 {
                     if (bOnEnterState)
                     {
+                        hitTimer = 0;
                         bOnEnterState = false;
                     }
                     myNav.SetDestination(playerTransform.position);
                     DetectPlayer();
+                    hitTimer += Time.deltaTime;
+
 
                     if (damagingWeapon)
                     {
                         TakeDamage(0);
                         SetState(GuestState.TAKING_DAMAGE);
+                    }
+                    if (hitTimer >= 5.0f)
+                    {
+                        SetState(GuestState.IDLE);
                     }
                    
 
