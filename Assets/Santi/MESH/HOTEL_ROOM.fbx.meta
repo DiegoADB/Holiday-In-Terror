@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: aea0be2981266fb42ba2eaf65f046e00
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bed_Blanket_1Type16_PLFull
+    100002: Bed_Decoration_1Type16_PLFull
+    100004: Bed_DecorationExtras_1Type16_PLFull
+    100006: Bed_Matress_1Type16_PLFull
+    100008: BedDesk_BaseMain_2Type1_PLFull
+    100010: BedDesk_BaseMain_2Type1_PLFull.001
+    100012: Box001
+    100014: ClassicKitchenChair2
+    100016: ClassicKitchenChair2.001
+    100018: ClassicKitchenChair2.002
+    100020: ClassicRoundTable1
+    100022: Cube
+    100024: Cube.001
+    100026: DressingTable_Main_5Type2_PLFull
+    100028: DressingTable_Main_5Type2_PLFull.001
+    100030: DressingTable_Main_5Type2_PLFull.002
+    100032: //RootNode
+    100034: Room A
+    100036: toilet1
+    400000: Bed_Blanket_1Type16_PLFull
+    400002: Bed_Decoration_1Type16_PLFull
+    400004: Bed_DecorationExtras_1Type16_PLFull
+    400006: Bed_Matress_1Type16_PLFull
+    400008: BedDesk_BaseMain_2Type1_PLFull
+    400010: BedDesk_BaseMain_2Type1_PLFull.001
+    400012: Box001
+    400014: ClassicKitchenChair2
+    400016: ClassicKitchenChair2.001
+    400018: ClassicKitchenChair2.002
+    400020: ClassicRoundTable1
+    400022: Cube
+    400024: Cube.001
+    400026: DressingTable_Main_5Type2_PLFull
+    400028: DressingTable_Main_5Type2_PLFull.001
+    400030: DressingTable_Main_5Type2_PLFull.002
+    400032: //RootNode
+    400034: Room A
+    400036: toilet1
+    2100000: PAREDES
+    2100002: LAVAMANOS
+    2100004: TINA
+    2100006: TOILET
+    2100008: CAMA BASE
+    2100010: DETALLES CAMA
+    2100012: COLCHON
+    2100014: SABANAS
+    2100016: BURO
+    2100018: MESA CAMA
+    2100020: PARED
+    2100022: MESA
+    2100024: SILLA
+    2300000: Bed_Blanket_1Type16_PLFull
+    2300002: Bed_Decoration_1Type16_PLFull
+    2300004: Bed_DecorationExtras_1Type16_PLFull
+    2300006: Bed_Matress_1Type16_PLFull
+    2300008: BedDesk_BaseMain_2Type1_PLFull
+    2300010: BedDesk_BaseMain_2Type1_PLFull.001
+    2300012: Box001
+    2300014: ClassicKitchenChair2
+    2300016: ClassicKitchenChair2.001
+    2300018: ClassicKitchenChair2.002
+    2300020: ClassicRoundTable1
+    2300022: Cube
+    2300024: Cube.001
+    2300026: DressingTable_Main_5Type2_PLFull
+    2300028: DressingTable_Main_5Type2_PLFull.001
+    2300030: DressingTable_Main_5Type2_PLFull.002
+    2300032: Room A
+    2300034: toilet1
+    3300000: Bed_Blanket_1Type16_PLFull
+    3300002: Bed_Decoration_1Type16_PLFull
+    3300004: Bed_DecorationExtras_1Type16_PLFull
+    3300006: Bed_Matress_1Type16_PLFull
+    3300008: BedDesk_BaseMain_2Type1_PLFull
+    3300010: BedDesk_BaseMain_2Type1_PLFull.001
+    3300012: Box001
+    3300014: ClassicKitchenChair2
+    3300016: ClassicKitchenChair2.001
+    3300018: ClassicKitchenChair2.002
+    3300020: ClassicRoundTable1
+    3300022: Cube
+    3300024: Cube.001
+    3300026: DressingTable_Main_5Type2_PLFull
+    3300028: DressingTable_Main_5Type2_PLFull.001
+    3300030: DressingTable_Main_5Type2_PLFull.002
+    3300032: Room A
+    3300034: toilet1
+    4300000: Room A
+    4300002: Box001
+    4300004: Cube
+    4300006: toilet1
+    4300008: Bed_Decoration_1Type16_PLFull
+    4300010: Bed_DecorationExtras_1Type16_PLFull
+    4300012: Bed_Matress_1Type16_PLFull
+    4300014: Bed_Blanket_1Type16_PLFull
+    4300016: DressingTable_Main_5Type2_PLFull
+    4300018: BedDesk_BaseMain_2Type1_PLFull
+    4300020: BedDesk_BaseMain_2Type1_PLFull.001
+    4300022: DressingTable_Main_5Type2_PLFull.001
+    4300024: DressingTable_Main_5Type2_PLFull.002
+    4300026: Cube.001
+    4300028: ClassicRoundTable1
+    4300030: ClassicKitchenChair2
+    4300032: ClassicKitchenChair2.001
+    4300034: ClassicKitchenChair2.002
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
