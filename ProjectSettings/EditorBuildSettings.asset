@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prev/Scenes/SCN_PlayerTesting.unity
     guid: 53d4fd7524acc5c40b736ec8946cc4d5
   - enabled: 1

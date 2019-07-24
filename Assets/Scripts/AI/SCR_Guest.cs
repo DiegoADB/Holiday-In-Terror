@@ -14,6 +14,7 @@ public class SCR_Guest : MonoBehaviour
     [SerializeField]
     protected float enemyHP = 0.0f;
     protected Interactable damagingWeapon;
+    float staggertime = 0.0f;
 
     [Header("Detection")]
     [SerializeField]
@@ -280,11 +281,23 @@ public class SCR_Guest : MonoBehaviour
                     }
                     myNav.SetDestination(playerTransform.position);
                     detectionTimer += Time.deltaTime;
-                    if (detectionTimer >= detectionTimeout && canKillYou)
+                    if (canKillYou)
                     {
-                        SceneManager.LoadScene("END");
+                        if (detectionTimer >= detectionTimeout)
+                        {
+                            if (Vector3.Distance(transform.position, playerTransform.position) < 2.0f)
+                            {
+                                SceneManager.LoadScene("END");
+                            }
+                            else
+                            {
+                                SetState(GuestState.IDLE);
+                            }
+                        }
                     }
-                    else if (bIsDead)
+                   
+                   
+                    if (bIsDead)
                     {
                         SetState(GuestState.DEAD);
                     }
@@ -341,8 +354,14 @@ public class SCR_Guest : MonoBehaviour
                     {
                         myAnim.SetTrigger("Staggered");
                         bOnEnterState = false;
+                        staggertime = 0;
                     }
+                    staggertime += Time.deltaTime;
 
+                    if (staggertime >= 1.0f)
+                    {
+                        SetState(GuestState.DETECTED_PLAYER);
+                    }
 
                     if (damagingWeapon)
                     {

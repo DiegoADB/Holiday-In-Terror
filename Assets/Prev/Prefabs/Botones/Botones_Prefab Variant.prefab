@@ -207,6 +207,7 @@ MonoBehaviour:
   enemyHP: 1e+18
   detectNoiseRange: 100
   detectionTimeout: 3
+  canKillYou: 0
   ragForce: 0
   ragdoll: {fileID: 0}
   waypoints: []
@@ -214,12 +215,13 @@ MonoBehaviour:
   detectedSpeed: 2
   bloodParticles: {fileID: 6498050239194010059, guid: 63b1e62a6f7c9a64683d57e680af6958,
     type: 3}
-  takingDamageClip: {fileID: 8300000, guid: 8f70ca549379cad40aa31aff06bb1628, type: 3}
+  takingDamageClip: {fileID: 8300000, guid: 8a6f0a46af9f7ac409c3caa7f4a7c1ec, type: 3}
   idleClip: {fileID: 8300000, guid: 4c0397b402e02dd4bb73bf527bb8ce9f, type: 3}
-  detectedClip: {fileID: 8300000, guid: 8f70ca549379cad40aa31aff06bb1628, type: 3}
+  detectedClip: {fileID: 8300000, guid: 8a6f0a46af9f7ac409c3caa7f4a7c1ec, type: 3}
   bloodClip: {fileID: 8300000, guid: 614ef908bebb08945bdcb5336c3c23cd, type: 3}
   myAudio: {fileID: 4839162464493508986}
   bloodAudio: {fileID: 3878470746310639832}
+  currentState: 0
 --- !u!195 &1075487571866975801
 NavMeshAgent:
   m_ObjectHideFlags: 0
